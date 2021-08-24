@@ -1,7 +1,12 @@
 const { Schema, model } = require("mongoose");
 
 const postSchema = new Schema({
-  // TODO add post schema
+  title: String,
+  description: String,
+  creator: {
+    type: Schema.Types.ObjectId,
+    ref: "Student"
+  }
 });
 
 const PostModel = model("Post", postSchema);

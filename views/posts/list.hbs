@@ -1,6 +1,15 @@
 <div>
   <h2>See all posts!</h2>
 
+  {{#each allPosts}}
+    <p>title: {{this.title}}</p>
+    <p>description: {{this.description}}</p>
+    <p>creator: {{this.creator.name}}</p>
+    <p>creator Location: {{this.creator.location}}</p>
+
+    <hr>
+  {{/each}}
+
   {{!-- TODO add information of posts --}}
 
 </div>

@@ -33,6 +33,8 @@ const studentRoutes = require('./routes/student.routes');
 app.use('/students', studentRoutes);
 
 // TODO post routes here:
+const postRoutes = require('./routes/post.routes')
+app.use('/posts', postRoutes)
 
 // TODO comment routes here:
 
