@@ -1,0 +1,37 @@
+<div>
+
+  <h2>Details of the post</h2>
+
+    <p>title: {{singlePost.title}}</p>
+    <p>description: {{singlePost.description}}</p>
+    <p>creator: {{singlePost.creator.name}}</p>
+    <p>creator Location: {{singlePost.creator.location}}</p>
+  <hr>
+  <h2>Comments:</h2>
+  {{#each postComments}}
+    <p>{{this.creator.name}} said: {{this.comment}}</p>
+  {{/each}}
+
+  <hr>
+  <h2>Add your comment!</h2>
+  <form action="/comments/add" method="POST">
+
+    <label for="comment">Comment:</label>
+    <input type="text" name="comment">
+
+    <input type="hidden" value="{{singlePost._id}}" name="inPost">
+
+    {{!-- We need the creators ID --}}
+    <label for="creator">Who are you?</label>
+    <select name="creator">
+      {{#each allStudents}}
+        <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+
+    </select>
+
+    <button type="submit">Add comment:</button>
+
+  </form>
+
+</div>

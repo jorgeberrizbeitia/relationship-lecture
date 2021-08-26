@@ -3,9 +3,19 @@
 const { Schema, model } = require("mongoose");
 
 const commentSchema = new Schema({
-  // TODO add comment schema
+  comment: String,
+  creator: {
+    type: Schema.Types.ObjectId,
+    ref: "Student"
+  },
+  inPost: {
+    type: Schema.Types.ObjectId,
+    ref: "Post"
+  }
 });
 
 const CommentModel = model("Comment", commentSchema);
 
 module.exports = CommentModel;
+
+
